@@ -103,9 +103,7 @@ body {
 
 
 .flex--vertical {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
   flex-wrap: wrap;
   padding-left: 3%;
   padding-right: 3%;
