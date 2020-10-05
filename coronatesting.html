@@ -16,90 +16,70 @@
   </div>
 </div>
 
-<div class="container">
-	<h1>Information Form</h1>
+<div class="regform">
+	<h1>Information Form</h1></div>
 
+  <div class ="main">
 <form id ="testForm">
-  <div class="flex-container">
-  <div>
-  <p>
-    <label>
-      Full Name:<br></label>
-    <input type="text" placeholder="Enter Name" id="name">
-  </p>
-  <p>
-    <label>
-      Phone Number:<br>
-    <input type="number" placeholder="123456789" id="mobile">
-    </label>
-  </p>
-    <p>
-    <label>
-      Age:<br>
-    <input type="number" placeholder="1-100" id="age">
-    </label>
-  </p>
-  <p>
-    <label>
-      Email:<br>
-    <input type="email" placeholder="something@email.com" id="email">
-    </label>
-  </p>
-  <p>
-    <label>
-      Profession:<br>
-    <input type="text" placeholder="student/private/doctor" id="profession">
-    </label>
-  </p>
-  <p>
-    <label>
-      Date Of Birth:<br></label>
-    <input type="date" id ="dateofbirth">
-  </p>
-  <p>
-    <label>
-      State:<br></label>
-    <input type="text" placeholder="Enter State" id="state">
-  </p>
-  <p>
-    <label>
-      Any of the following country travelled outside in the last 30 days ?<br> </label>
-      <select id="travel">
-					<option value="" disabled selected>City</option>
-          <option>China</option>
-          <option>UK</option>
-          <option>USA</option>
-          <option>Thailand</option>
-          <option>Nepal</option>
-          <option>Canada</option>
-          <option>None of These</option>
-      </select>
+  <div id="name">
+  <h2 class ="name">Name</h2>
+  <input id ="firstname" type="text" required name ="first_name"><br>
+  <label id="firstlabel"> first name</label>
+  <input id ="lastname" type="text" required name ="last_name"><br>
+  <label id="lastlabel"> last name</label>
+  </div>
 
-  </p>
-  <p>
-		<label>Ready to volunteer in the time of need ?<br> </label>
-			<input type="radio" name="radio" value="Yes" id="volunteer"><label for="rad1">Yes</label><br>
-			<input type="radio" name="radio" value="No" id="novolunteer"><label for="rad2">No</label><br>
-  </p>
-  <p>
-    	<label>Do you have any of the following symptoms ?<br> </label>
-    <input type="checkbox" name="symptoms" value="Fever" id="cb1"><label for="cb1">Fever</label><br>
-		<input type="checkbox" name="symptoms" value="Dry Cough" id="cb2"><label for="cb2">Dry Cough</label><br>
-		<input type="checkbox" name="symptoms" value="Cold" id="cb3"><label for="cb3">Cold</label><br>
-    <input type="checkbox" name="symptoms" value="Breathing Issues" id="cb4"><label for="cb3">Breathing Issues</label><br>
-    <input type="checkbox" name="symptoms" value="Chest Pain" id="cb5"><label for="cb3">Chest Pain</label><br>
-  </p>
-  <p><br><br>
-    <input type="submit" onclick="outputvalue()">
-		<input type="reset">
-  </p>
-  <p style="color:white">Testing Centers around you: <span id="result"></span><br>
+  <h2 class ="name">Profession</h2>
+  <input id ="profession" type="text" name ="profession" placeholder="student/doctor/teacher">
+  
+  <h2 class ="name">Email</h2>
+  <input id ="email" type="text" required name ="email">
+  <h2 class ="name">Date Of Birth</h2>
+  <input id ="dateofbirth" type="date" required name ="dateofbirth">
+  
+  <h2 class ="name">Mobile Number</h2>
+  <input id ="mobile" type="text" name ="mobile" required pattern="[789][0-9]{9}">
+  
+  
+  <h2 class="name"> State</h2>
+  <select id ="state" name ="state">
+    <option disabled="disabled" required selected="selected">--choose</option>
+  <option> state 1</option>
+  <option> delhi</option>
+  <option> punjab</option>
+  <option> state 2</option>
+  <option> state 3</option>
+
+  </select>
+
+<h2 id="travel"> Have you travelled to COVID affected country within last 1 month?</h2>
+<div id="travel">
+  <input type="radio"  name="option" value="Yes"> Yes
+ <input type="radio"  name="option" value="No" checked="checked"> No
+</div>
+
+<h2 id="symptoms">Do you have any of the following symptoms ?</h2>
+<div class="arrange">
+<input type="checkbox" name="symptoms" value="Fever" id="cb1"><label for="cb1">Fever</label><br>
+<input type="checkbox" name="symptoms" value="Dry Cough" id="cb2"><label for="cb2">Dry Cough</label><br>
+<input type="checkbox" name="symptoms" value="Cold" id="cb3"><label for="cb3">Cold</label><br>
+<input type="checkbox" name="symptoms" value="Breathing Issues" id="cb4"><label for="cb3">Breathing Issues</label><br>
+<input type="checkbox" name="symptoms" value="Chest Pain" id="cb5"><label for="cb3">Chest Pain</label><br>
+</div>
+<input id="submit" type="submit">
+
+</p>
+<h2 id="centers"> Testing Centres around you: <span id="result"></span><br>
 </div>
 </form>
 </div>
+<script>
 
+
+</script>
 <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase.js"></script>
 <script  src="./testingScript.js"></script>
 
 </body>
 </html>
+
