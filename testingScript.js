@@ -13,19 +13,20 @@ var firebaseConfig = {
   document.getElementById('testForm').addEventListener('submit',submitForm);
   function submitForm(e){
     e.preventDefault();
-    var name =getInputVal('name');
+    var fname =getInputVal('firstname');
+    var lname =getInputVal('lastname');
     var mobile =getInputVal('mobile');
-    var age =getInputVal('age');
     var state =getInputVal('state');
     state=state.toLowerCase();
     readState(state);
     var email =getInputVal('email');
+    var emailstatus=validateEmail();
     var profession =getInputVal('profession');
     var dateofbirth =getInputVal('dateofbirth');
-    var volunteer = getInputVal('volunteer');
-    var travel = getInputVal('travel');
     var symptomsList =getSelectedCheckboxValues('symptoms');
-    saveMessages(name,mobile,age,email,profession,dateofbirth,volunteer,state,travel,symptomsList);
+    var selectedOption = document.querySelector('input[name = option]:checked').value;
+    if(emailstatus)
+    saveMessages(lname+ " " +fname,mobile,email,profession,dateofbirth,state,selectedOption,symptomsList);
 }
 
 function readState(state){
@@ -41,20 +42,19 @@ function getInputVal(id){
     return document.getElementById(id).value;
 }
 
-function saveMessages(name,mobile,age,email,profession,dateofbirth,volunteer,state,travel,symptomsList){
+function saveMessages(name,mobile,email,profession,dateofbirth,state,selectedOption,symptomsList){
     var newuserInputsRef = UserInputsRef.push();
     newuserInputsRef.set({
         name:name,
         mobile:mobile,
-        age:age,
         email:email,
         profession:profession,
         dateofbirth:dateofbirth,
-        volunteer:volunteer,
-        state:state,
-        travel:travel,
+        selectedOption:selectedOption,
+        state:state, 
         symptomsList:symptomsList
     })
+    alert("Thank you, find the list of centers nearby!  ");
 }
 
 function getSelectedCheckboxValues(name) {
@@ -64,4 +64,14 @@ function getSelectedCheckboxValues(name) {
         values.push(checkbox.value);
     });
     return values;
+}
+
+function validateEmail() 
+{
+ if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(testForm.email.value))
+  {
+    return (true)
+  }
+    alert("You have entered an invalid email address!")
+    return (false)
 }
